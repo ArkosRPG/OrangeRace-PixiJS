@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>4.4.0</string>
         <key>fileName</key>
-        <string>Q:/WorkTests/OrangeApps/Game/images/SHEETS/Road.tps</string>
+        <string>Q:/WorkTests/OrangeApps/orangerace.pixijs/Sprites/Track.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -36,7 +36,7 @@
         <key>dataFormat</key>
         <string>pixijs</string>
         <key>textureFileName</key>
-        <filename>RoadSheet.png</filename>
+        <filename>../img/TrackAtlas.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -97,7 +97,7 @@
         <key>fixedTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>-1</int>
+            <int>512</int>
             <key>height</key>
             <int>-1</int>
         </QSize>
@@ -150,7 +150,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>Road.json</filename>
+                <filename>../img/Track.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -177,7 +177,7 @@
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
-            <double>0.75</double>
+            <double>0.5</double>
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>extrude</key>
@@ -199,41 +199,41 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../Cars/CarGray.png</key>
-            <key type="filename">../Cars/CarOrange.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand03.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand04.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand05.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand06.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand07.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand11.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand12.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand17.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand18.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand19.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand21.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand22.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand23.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand24.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand25.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand29.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand30.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand36.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand40.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand41.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand42.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand43.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand47.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand48.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand58.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand59.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand60.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand61.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand65.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand66.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand67.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand79.png</key>
-            <key type="filename">../Tiles/Sand road/road_sand90.png</key>
+            <key type="filename">CarGray.png</key>
+            <key type="filename">CarOrange.png</key>
+            <key type="filename">Sand road/road_sand03.png</key>
+            <key type="filename">Sand road/road_sand04.png</key>
+            <key type="filename">Sand road/road_sand05.png</key>
+            <key type="filename">Sand road/road_sand06.png</key>
+            <key type="filename">Sand road/road_sand07.png</key>
+            <key type="filename">Sand road/road_sand11.png</key>
+            <key type="filename">Sand road/road_sand12.png</key>
+            <key type="filename">Sand road/road_sand17.png</key>
+            <key type="filename">Sand road/road_sand18.png</key>
+            <key type="filename">Sand road/road_sand19.png</key>
+            <key type="filename">Sand road/road_sand21.png</key>
+            <key type="filename">Sand road/road_sand22.png</key>
+            <key type="filename">Sand road/road_sand23.png</key>
+            <key type="filename">Sand road/road_sand24.png</key>
+            <key type="filename">Sand road/road_sand25.png</key>
+            <key type="filename">Sand road/road_sand29.png</key>
+            <key type="filename">Sand road/road_sand30.png</key>
+            <key type="filename">Sand road/road_sand36.png</key>
+            <key type="filename">Sand road/road_sand40.png</key>
+            <key type="filename">Sand road/road_sand41.png</key>
+            <key type="filename">Sand road/road_sand42.png</key>
+            <key type="filename">Sand road/road_sand43.png</key>
+            <key type="filename">Sand road/road_sand47.png</key>
+            <key type="filename">Sand road/road_sand48.png</key>
+            <key type="filename">Sand road/road_sand58.png</key>
+            <key type="filename">Sand road/road_sand59.png</key>
+            <key type="filename">Sand road/road_sand60.png</key>
+            <key type="filename">Sand road/road_sand61.png</key>
+            <key type="filename">Sand road/road_sand65.png</key>
+            <key type="filename">Sand road/road_sand66.png</key>
+            <key type="filename">Sand road/road_sand67.png</key>
+            <key type="filename">Sand road/road_sand79.png</key>
+            <key type="filename">Sand road/road_sand90.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -249,41 +249,9 @@
         </map>
         <key>fileList</key>
         <array>
-            <filename>../Tiles/Sand road/road_sand03.png</filename>
-            <filename>../Tiles/Sand road/road_sand04.png</filename>
-            <filename>../Tiles/Sand road/road_sand05.png</filename>
-            <filename>../Tiles/Sand road/road_sand06.png</filename>
-            <filename>../Tiles/Sand road/road_sand07.png</filename>
-            <filename>../Tiles/Sand road/road_sand11.png</filename>
-            <filename>../Tiles/Sand road/road_sand12.png</filename>
-            <filename>../Tiles/Sand road/road_sand17.png</filename>
-            <filename>../Tiles/Sand road/road_sand18.png</filename>
-            <filename>../Tiles/Sand road/road_sand19.png</filename>
-            <filename>../Tiles/Sand road/road_sand21.png</filename>
-            <filename>../Tiles/Sand road/road_sand22.png</filename>
-            <filename>../Tiles/Sand road/road_sand23.png</filename>
-            <filename>../Tiles/Sand road/road_sand24.png</filename>
-            <filename>../Tiles/Sand road/road_sand25.png</filename>
-            <filename>../Tiles/Sand road/road_sand29.png</filename>
-            <filename>../Tiles/Sand road/road_sand30.png</filename>
-            <filename>../Tiles/Sand road/road_sand36.png</filename>
-            <filename>../Tiles/Sand road/road_sand40.png</filename>
-            <filename>../Tiles/Sand road/road_sand41.png</filename>
-            <filename>../Tiles/Sand road/road_sand42.png</filename>
-            <filename>../Tiles/Sand road/road_sand43.png</filename>
-            <filename>../Tiles/Sand road/road_sand47.png</filename>
-            <filename>../Tiles/Sand road/road_sand48.png</filename>
-            <filename>../Tiles/Sand road/road_sand58.png</filename>
-            <filename>../Tiles/Sand road/road_sand59.png</filename>
-            <filename>../Tiles/Sand road/road_sand60.png</filename>
-            <filename>../Tiles/Sand road/road_sand61.png</filename>
-            <filename>../Tiles/Sand road/road_sand65.png</filename>
-            <filename>../Tiles/Sand road/road_sand66.png</filename>
-            <filename>../Tiles/Sand road/road_sand67.png</filename>
-            <filename>../Tiles/Sand road/road_sand79.png</filename>
-            <filename>../Tiles/Sand road/road_sand90.png</filename>
-            <filename>../Cars/CarGray.png</filename>
-            <filename>../Cars/CarOrange.png</filename>
+            <filename>CarGray.png</filename>
+            <filename>CarOrange.png</filename>
+            <filename>Sand road</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
