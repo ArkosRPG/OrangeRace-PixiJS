@@ -1,0 +1,86 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>OrangeRacing.PixiJS</title>
+<body>
+<style type="text/css">
+    canvas { position: absolute; left: 0; top: 0; }
+</style>
+<script src="pixi.js/dist/pixi.js"></script>
+<script>
+var Container = PIXI.Container,
+    autoDetectRenderer = PIXI.autoDetectRenderer,
+    loader = PIXI.loader,
+    resources = PIXI.loader.resources,
+    TextureCache = PIXI.utils.TextureCache,
+    Texture = PIXI.Texture,
+    Sprite = PIXI.Sprite;
+
+var CELL = 96;
+var SIZEX = 12;
+var SIZEY = 12;
+
+var road = new Container(),
+    car = new Container(),
+    roadCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY);
+    carCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY, {transparent : true});
+roadCanvas.view.style = "z-index: 0;";
+carCanvas.view.style = "z-index: 1;";
+document.body.appendChild(roadCanvas.view);
+document.body.appendChild(carCanvas.view);
+
+loader
+    .add("img/Road.json")
+    .load(SetupRoad);
+
+var roadAtlas, roadCollisionAtlas;
+
+function SetupRoad()
+{
+    roadAtlas = PIXI.loader.resources["img/Road.json"].textures; 
+
+    var roadMap = new Array(4, 22, 17, 17, 17, 17, 65, 17, 17, 17, 40, 58,
+                            5, 23, 19, 19, 19, 41, 66, 79, 79, 79, 18, 59,
+                            6, 24, 17, 40, 58, 3, 67, 19, 19, 19, 41, 36,
+                            7, 25, 19, 41, 59, 4, 22, 17, 40, 58, 90, 36,
+                            0, 0, 11, 29, 36, 5, 23, 19, 41, 59, 90, 36,
+                            0, 0, 12, 18, 47, 90, 36, 11, 29, 36, 90, 36,
+                            0, 11, 29, 30, 48, 90, 36, 12, 18, 47, 90, 36,
+                            0, 12, 18, 47, 0, 90, 36, 90, 30, 48, 90, 36,
+                            4, 29, 30, 48, 11, 29, 47, 90, 36, 0, 90, 36,
+                            5, 23, 21, 0, 12, 30, 48, 90, 36, 0, 90, 36,
+                            6, 24, 17, 17, 42, 60, 0, 6, 24, 17, 42, 60,
+                            7, 25, 19, 19, 43, 61, 0, 7, 25, 19, 43, 61);
+
+    var i = 0;
+    for(var x = 0; x < SIZEX; x++)
+    {
+        for(var y = 0; y < SIZEY; y++)
+        {
+            if(roadMap[i] > 0)
+            {
+                var spriteName = "road_sand";
+                if(roadMap[i] < 10)
+                    spriteName += 0;
+                spriteName += roadMap[i];
+          
+                var roadCell = new Sprite(roadAtlas[spriteName]);
+                roadCell.position.set(x * CELL, y * CELL);
+                road.addChild(roadCell);
+            }
+            i++;
+        }
+    }
+
+    var player = new Sprite(roadAtlas["CarGray"]);
+        player.position.set(CELL, CELL*9);
+        car.addChild(player);
+
+    var player = new Sprite(roadAtlas["CarOrange"]);
+        player.position.set(CELL, CELL*7);
+        car.addChild(player);
+
+    roadCanvas.render(road);
+    carCanvas.render(car);
+}
+</script>
+</body>
