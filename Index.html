@@ -17,8 +17,8 @@ var CELL = 64;
 var SIZEX = 12;
 var SIZEY = 12;
 
-var track = new Container(),
-    car = new Container(),
+var trackContainer = new Container(),
+    carContainer = new Container(),
     trackCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY);
     carCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY, {transparent : true});
 trackCanvas.view.style = "z-index: 0;";
@@ -33,6 +33,7 @@ loader
     ;
 
 var trackAtlas, trackCollisionAtlas;
+var car;
 
 function DrawTrack()
 {
@@ -65,25 +66,25 @@ function DrawTrack()
           
                 var trackCell = new Sprite(trackAtlas[spriteName]);
                 trackCell.position.set(x * CELL, y * CELL);
-                track.addChild(trackCell);
+                trackContainer.addChild(trackCell);
             }
             i++;
         }
     }
-    trackCanvas.render(track);
+    trackCanvas.render(trackContainer);
 }
 
 function DrawCar()
 {
-    var player = new Sprite(trackAtlas["CarGray"]);
-        player.position.set(CELL, CELL*9);
-        car.addChild(player);
+    car = new Sprite(trackAtlas["CarGray"]);
+    car.position.set(CELL, CELL*9);
+    carContainer.addChild(car);
 
-    var player = new Sprite(trackAtlas["CarOrange"]);
-        player.position.set(CELL, CELL*7);
-        car.addChild(player);
+    car = new Sprite(trackAtlas["CarOrange"]);
+    car.position.set(CELL, CELL*7);
+    carContainer.addChild(car);
 
-    carCanvas.render(car);
+    carCanvas.render(carContainer);
 }
 </script>
 </body>
