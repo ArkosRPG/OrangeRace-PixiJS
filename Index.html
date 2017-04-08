@@ -17,28 +17,28 @@ var CELL = 64;
 var SIZEX = 12;
 var SIZEY = 12;
 
-var road = new Container(),
+var track = new Container(),
     car = new Container(),
-    roadCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY);
+    trackCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY);
     carCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY, {transparent : true});
-roadCanvas.view.style = "z-index: 0;";
+trackCanvas.view.style = "z-index: 0;";
 carCanvas.view.style = "z-index: 1;";
-document.body.appendChild(roadCanvas.view);
+document.body.appendChild(trackCanvas.view);
 document.body.appendChild(carCanvas.view);
 
 loader
-    .add("img/Road.json")
-    .load(DrawRoad)
+    .add("img/Track.json")
+    .load(DrawTrack)
     .load(DrawCar)
     ;
 
-var roadAtlas, roadCollisionAtlas;
+var trackAtlas, trackCollisionAtlas;
 
-function DrawRoad()
+function DrawTrack()
 {
-    roadAtlas = PIXI.loader.resources["img/Road.json"].textures; 
+    trackAtlas = PIXI.loader.resources["img/Track.json"].textures; 
 
-    var roadMap = new Array(4, 22, 17, 17, 17, 17, 65, 17, 17, 17, 40, 58,
+    var trackMap = new Array(4, 22, 17, 17, 17, 17, 65, 17, 17, 17, 40, 58,
                              5, 23, 19, 19, 19, 41, 66, 79, 79, 79, 18, 59,
                              6, 24, 17, 40, 58, 3, 67, 19, 19, 19, 41, 36,
                              7, 25, 19, 41, 59, 4, 22, 17, 40, 58, 90, 36,
@@ -56,30 +56,30 @@ function DrawRoad()
     {
         for(var y = 0; y < SIZEY; y++)
         {
-            if(roadMap[i] > 0)
+            if(trackMap[i] > 0)
             {
                 var spriteName = "road_sand";
-                if(roadMap[i] < 10)
+                if(trackMap[i] < 10)
                     spriteName += 0;
-                spriteName += roadMap[i];
+                spriteName += trackMap[i];
           
-                var roadCell = new Sprite(roadAtlas[spriteName]);
-                roadCell.position.set(x * CELL, y * CELL);
-                road.addChild(roadCell);
+                var trackCell = new Sprite(trackAtlas[spriteName]);
+                trackCell.position.set(x * CELL, y * CELL);
+                track.addChild(trackCell);
             }
             i++;
         }
     }
-    roadCanvas.render(road);
+    trackCanvas.render(track);
 }
 
 function DrawCar()
 {
-    var player = new Sprite(roadAtlas["CarGray"]);
+    var player = new Sprite(trackAtlas["CarGray"]);
         player.position.set(CELL, CELL*9);
         car.addChild(player);
 
-    var player = new Sprite(roadAtlas["CarOrange"]);
+    var player = new Sprite(trackAtlas["CarOrange"]);
         player.position.set(CELL, CELL*7);
         car.addChild(player);
 
