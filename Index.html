@@ -2,9 +2,7 @@
 <meta charset="utf-8">
 <title>OrangeRacing.PixiJS</title>
 <body>
-<style type="text/css">
-    canvas { position: absolute; left: 0; top: 0; }
-</style>
+<link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
 <script src="pixi.js/dist/pixi.js"></script>
 <script>
 var Container = PIXI.Container,
@@ -30,7 +28,9 @@ document.body.appendChild(carCanvas.view);
 
 loader
     .add("img/Road.json")
-    .load(SetupRoad);
+    .load(SetupRoad)
+    .load(DrawCar)
+    ;
 
 var roadAtlas, roadCollisionAtlas;
 
@@ -70,7 +70,11 @@ function SetupRoad()
             i++;
         }
     }
+    roadCanvas.render(road);
+}
 
+function DrawCar()
+{
     var player = new Sprite(roadAtlas["CarGray"]);
         player.position.set(CELL, CELL*9);
         car.addChild(player);
@@ -79,7 +83,6 @@ function SetupRoad()
         player.position.set(CELL, CELL*7);
         car.addChild(player);
 
-    roadCanvas.render(road);
     carCanvas.render(car);
 }
 </script>
