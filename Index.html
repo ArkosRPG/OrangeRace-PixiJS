@@ -8,6 +8,7 @@
 <script src="js/Track.js"></script>
 <script src="js/Car.js"></script>
 <script src="js/Keyboard.js"></script>
+<script src="js/Collision.js"></script>
 <script src="js/Controls.js"></script>
 <script>
 var CELL = 64;
@@ -23,6 +24,9 @@ carCanvas.view.style = "z-index: 1;";
 document.body.appendChild(trackCanvas.view);
 document.body.appendChild(carCanvas.view);
 
+var trackAtlas,
+    trackPixelData;
+
 loader
     .add("img/Track.json")
     .load(DrawTrack)
@@ -30,8 +34,6 @@ loader
     .load(SetupControls)
     .load(gameLoop);
     ;
-
-var trackAtlas, trackCollisionAtlas;
 
 function gameLoop()
 {

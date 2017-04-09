@@ -72,6 +72,8 @@ function play()
     if(car.rotation < -Math.PI*2)
         car.rotation += Math.PI*2;
 
+    if(CollisionCheck(car)) car.velocity = 0;
+
     car.x += car.velocity * Math.sin(car.rotation);
     car.y -= car.velocity * Math.cos(car.rotation);
 
