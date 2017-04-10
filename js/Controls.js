@@ -1,5 +1,10 @@
 function SetupControls()
 {
+    car.trackStart   = undefined;
+    car.startLapTime = undefined;
+    car.lapTime      = undefined;
+    car.bestTime     = undefined;
+
     car.anchor.x = .5;
     car.anchor.y = .6;
     car.x += CELL * car.anchor.x;
@@ -72,10 +77,36 @@ function play()
     if(car.rotation < -Math.PI*2)
         car.rotation += Math.PI*2;
 
+
     if(CollisionCheck(car)) car.velocity = 0;
+
+
+    var oldY = car.y;
 
     car.x += car.velocity * Math.sin(car.rotation);
     car.y -= car.velocity * Math.cos(car.rotation);
+
+    if(car.x<3*CELL)
+    {
+        if(oldY >  6.5*CELL &&
+          car.y <= 6.5*CELL)
+        {
+            console.log("Lap!");
+            if(car.trackStart === undefined)
+            {
+                car.trackStart =
+                car.startLapTime  = new Date().valueOf();
+            }
+            else
+            {
+                car.lapTime = new Date().valueOf() - car.startLapTime;
+                car.startLapTime = new Date().valueOf();
+                if(car.bestTime === undefined || car.bestTime > car.lapTime)
+                    car.bestTime = car.lapTime;
+            }
+        }
+    }
+
 
     if(car.x > CELL*SIZEX)
         car.x = CELL*SIZEX;
