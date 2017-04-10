@@ -8,7 +8,9 @@
 <script src="js/Track.js"></script>
 <script src="js/Car.js"></script>
 <script src="js/Keyboard.js"></script>
+<script src="js/Collision.js"></script>
 <script src="js/Controls.js"></script>
+<script src="js/Timer.js"></script>
 <script>
 var CELL = 64;
 var SIZEX = 12;
@@ -16,30 +18,38 @@ var SIZEY = 12;
 
 var trackContainer = new Container(),
     carContainer = new Container(),
-    trackCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY);
-    carCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY, {transparent : true});
+    HUDcontainer = new Container(),
+    trackCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY),
+    carCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY, {transparent : true}),
+    HUDcanvas= new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY, {transparent : true});
 trackCanvas.view.style = "z-index: 0;";
 carCanvas.view.style = "z-index: 1;";
+HUDcanvas.view.style = "z-index: 2;";
 document.body.appendChild(trackCanvas.view);
 document.body.appendChild(carCanvas.view);
+document.body.appendChild(HUDcanvas.view);
+
+var trackAtlas,
+    trackPixelData;
 
 loader
     .add("img/Track.json")
     .load(DrawTrack)
     .load(DrawCar)
     .load(SetupControls)
+    .load(DrawTimer)
     .load(gameLoop);
     ;
 
-var trackAtlas, trackCollisionAtlas;
-
 function gameLoop()
 {
-  requestAnimationFrame(gameLoop);
+    requestAnimationFrame(gameLoop);
 
-  state();
+    state();
+    UpdateTimer();
 
-  carCanvas.render(carContainer);
+    carCanvas.render(carContainer);
+    HUDcanvas.render(HUDcontainer);
 }
 </script>
 </body>

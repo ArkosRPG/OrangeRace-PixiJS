@@ -35,4 +35,6 @@ function DrawTrack()
         }
     }
     trackCanvas.render(trackContainer);
+
+    trackPixelData = trackCanvas.view.getContext("2d").getImageData(0,0, CELL*SIZEX, CELL*SIZEY).data;
 }

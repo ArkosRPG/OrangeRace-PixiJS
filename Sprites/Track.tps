@@ -199,6 +199,19 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
+            <key type="filename">2px.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>1,1,1,1</rect>
+                <key>scale9Paddings</key>
+                <rect>1,1,1,1</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">CarGray.png</key>
             <key type="filename">CarOrange.png</key>
             <key type="filename">Sand road/road_sand03.png</key>
@@ -252,6 +265,7 @@
             <filename>CarGray.png</filename>
             <filename>CarOrange.png</filename>
             <filename>Sand road</filename>
+            <filename>2px.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
