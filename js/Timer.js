@@ -16,7 +16,7 @@ function DrawTimer()
     timerText.anchor.set(.5,0);
     HUDcontainer.addChild(timerText);
 
-    HUDcanvas.render(HUDcontainer);
+    canvas.render(HUDcontainer);
 }
 
 function UpdateTimer()

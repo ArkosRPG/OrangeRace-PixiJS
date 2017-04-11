@@ -10,5 +10,5 @@ function DrawCar()
     car.position.set(CELL, CELL*7);
     carContainer.addChild(car);
 
-    carCanvas.render(carContainer);
+    canvas.render(carContainer);
 }

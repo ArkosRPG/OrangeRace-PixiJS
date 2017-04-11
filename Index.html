@@ -45,18 +45,15 @@ var storeCollecton = new StoreCollecton();
         storeCollecton.set([{bestTime:undefined}]);
 
 
-var trackContainer = new Container(),
+var appContainer = new Container(),
+    trackContainer = new Container(),
     carContainer = new Container(),
     HUDcontainer = new Container(),
-    trackCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY),
-    carCanvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY, {transparent : true}),
-    HUDcanvas= new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY, {transparent : true});
-trackCanvas.view.style = "z-index: 0;";
-carCanvas.view.style = "z-index: 1;";
-HUDcanvas.view.style = "z-index: 2;";
-document.body.appendChild(trackCanvas.view);
-document.body.appendChild(carCanvas.view);
-document.body.appendChild(HUDcanvas.view);
+    canvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY);
+document.body.appendChild(canvas.view);
+appContainer.addChild(trackContainer);
+appContainer.addChild(carContainer);
+appContainer.addChild(HUDcontainer);
 
 var trackAtlas,
     trackPixelData;
@@ -77,8 +74,7 @@ function gameLoop()
     state();
     UpdateTimer();
 
-    carCanvas.render(carContainer);
-    HUDcanvas.render(HUDcontainer);
+    canvas.render(appContainer);
 }
 </script>
 </body>
