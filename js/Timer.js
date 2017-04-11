@@ -43,11 +43,11 @@ function UpdateTimer()
                 time += "00"+mod;
         }
 
-
-        if(car.bestTime != undefined)
+        var bestTime = storeCollecton.at(0).get('bestTime');
+        if(bestTime != undefined)
         {
-            time += "\nBest: "+ (((car.bestTime - car.bestTime%1000)/1000)<<0) +":";
-            var mod = car.bestTime%1000;
+            time += "\nBest: "+ (((bestTime - bestTime%1000)/1000)<<0) +":";
+            var mod = bestTime%1000;
             if(mod>99)
                 time += mod;
             else

@@ -101,8 +101,13 @@ function play()
             {
                 car.lapTime = new Date().valueOf() - car.startLapTime;
                 car.startLapTime = new Date().valueOf();
-                if(car.bestTime === undefined || car.bestTime > car.lapTime)
-                    car.bestTime = car.lapTime;
+                console.log(storeCollecton.at(0).get('bestTime'));
+                var bestTime = storeCollecton.at(0).get('bestTime');
+                if(bestTime === undefined || car.bestTime > car.lapTime)
+                {
+                    storeCollecton.set([{bestTime: car.lapTime}]);
+                    //storeCollecton.save();
+                }
             }
         }
     }

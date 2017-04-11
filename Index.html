@@ -22,6 +22,29 @@ var CELL = 64;
 var SIZEX = 12;
 var SIZEY = 12;
 
+//--------------
+// Models
+//--------------
+var StoreModel = Backbone.Model.extend({
+        defaults: {
+            bestTime : undefined,
+        }
+    });
+
+//--------------
+// Collections
+//--------------
+var StoreCollecton = Backbone.Collection.extend({
+        model: StoreModel,
+        localStorage: new Store("Store"),
+    });
+
+var storeCollecton = new StoreCollecton();
+    storeCollecton.fetch();
+    if(storeCollecton.at(0) === undefined)
+        storeCollecton.set([{bestTime:undefined}]);
+
+
 var trackContainer = new Container(),
     carContainer = new Container(),
     HUDcontainer = new Container(),
