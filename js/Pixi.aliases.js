@@ -4,4 +4,5 @@ var Container = PIXI.Container,
     resources = PIXI.loader.resources,
     TextureCache = PIXI.utils.TextureCache,
     Texture = PIXI.Texture,
-    Sprite = PIXI.Sprite;
+    Sprite = PIXI.Sprite,
+    Text = PIXI.Text;

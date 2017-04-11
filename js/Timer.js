@@ -1,6 +1,4 @@
-var Text = PIXI.Text;
 var timerText;
-
 
 function DrawTimer()
 {
