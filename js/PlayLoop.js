@@ -38,8 +38,11 @@ function PlayLoop()
                 car.lapTime = new Date().valueOf() - car.startLapTime;
                 car.startLapTime = new Date().valueOf();
                 var bestTime = window.localStorage.getItem('BestTime');
-                if(bestTime === undefined || bestTime > car.lapTime)
+                if(bestTime === null || bestTime === undefined || bestTime > car.lapTime)
+                {
                     window.localStorage.setItem('BestTime', car.lapTime);
+                    car.bestTime = car.lapTime;
+                }
             }
         }
     }
