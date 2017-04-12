@@ -14,7 +14,7 @@ function PlayLoop()
         car.rotation += Math.PI*2;
 
 
-    if(CollisionCheck(car)) car.velocity = 0;
+    car.velocity = CollisionCheck(car);
 
 
     var oldY = car.y;
