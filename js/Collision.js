@@ -33,10 +33,10 @@ function CollisionCheck(car)
         if(true)
         {
             var q = new Sprite(atlas["2px"]);
-            q.position.set(x, y);
+            q.position.set(lx, ly);
             carContainer.addChild(q);
             q = new Sprite(atlas["2px"]);
-            q.position.set(lx, ly);
+            q.position.set(rx, ry);
             carContainer.addChild(q);
         }
     
@@ -45,6 +45,7 @@ function CollisionCheck(car)
         if(rx<0||rx>CELL*SIZEX) return true;
         if(ry<0||ry>CELL*SIZEY) return true;
     
+        var pixelC = 4*( x +  y * CELL*SIZEX);
         var dPixel = 4*(dx + dy * CELL*SIZEX);
         var pixelL = pixelC - dPixel;
         var pixelR = pixelC + dPixel;
