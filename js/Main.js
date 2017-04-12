@@ -1,3 +1,5 @@
+//window.localStorage.clear();
+
 var CELL = 64;
 var SIZEX = 12;
 var SIZEY = 12;
@@ -61,7 +63,8 @@ function StartGame()
 
 function ClearGame()
 {
-    ResetCar(car);
+    ResetCar(car,  1, 7);
+    ResetCar(car2, 1, 9);
     StartGame();
 }
 
