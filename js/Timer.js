@@ -1,6 +1,6 @@
 var timerText;
 
-function DrawTimer()
+function DrawTimer(container)
 {
     timerText = new Text("Loading...",{
         fontFamily: 'Roboto',
@@ -14,12 +14,10 @@ function DrawTimer()
     });
     timerText.position.set(CELL*SIZEX/2, 0);
     timerText.anchor.set(.5,0);
-    HUDcontainer.addChild(timerText);
-
-    canvas.render(HUDcontainer);
+    container.addChild(timerText);
 }
 
-function UpdateTimer()
+function UpdateTimer(car)
 {
     if(car.trackStart === undefined)
     {
@@ -43,7 +41,7 @@ function UpdateTimer()
                 time += "00"+mod;
         }
 
-        var bestTime = storeCollecton.at(0).get('bestTime');
+        var bestTime = car.bestTime;
         if(bestTime != undefined)
         {
             time += "\nBest: "+ (((bestTime - bestTime%1000)/1000)<<0) +":";

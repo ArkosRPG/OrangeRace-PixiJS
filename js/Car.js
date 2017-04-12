@@ -1,14 +1,26 @@
-var car;
-
-function DrawCar()
+function SetupCar(container, atlas, spriteName, startPositionX, startPositionY)
 {
-    car = new Sprite(trackAtlas["CarGray"]);
-    car.position.set(CELL, CELL*9);
-    carContainer.addChild(car);
+    var car = new Sprite(atlas[spriteName]);
+    car.anchor.x = .5;
+    car.anchor.y = .6;
+    container.addChild(car);
+    ResetCar(car, startPositionX, startPositionY);
+    return car;
+}
 
-    car = new Sprite(trackAtlas["CarOrange"]);
-    car.position.set(CELL, CELL*7);
-    carContainer.addChild(car);
+function ResetCar(car, startPositionX, startPositionY)
+{
+    car.position.set(CELL*startPositionX, CELL*startPositionY);
+    car.x += CELL * car.anchor.x;
+    car.y += CELL * car.anchor.y;
 
-    canvas.render(carContainer);
+    car.velocity     = 0;
+    car.rotation     = 0;
+    car.acceleration = 0;
+    car.angle        = 0;
+
+    car.trackStart   = undefined;
+    car.startLapTime = undefined;
+    car.lapTime      = undefined;
+    car.bestTime     = window.localStorage.getItem('BestTime');
 }

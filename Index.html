@@ -4,73 +4,15 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.16/backbone.localStorage-min.js"></script>
 <script src="https://code.createjs.com/tweenjs-0.6.2.min.js"></script>
 <script src="js/Pixi.aliases.js"></script>
+<script src="js/GraphicUtils.js"></script>
 <script src="js/Track.js"></script>
-<script src="js/Car.js"></script>
-<script src="js/Keyboard.js"></script>
 <script src="js/Collision.js"></script>
-<script src="js/Controls.js"></script>
+<script src="js/Car.js"></script>
 <script src="js/Timer.js"></script>
-<script>
-var CELL = 64;
-var SIZEX = 12;
-var SIZEY = 12;
-
-//--------------
-// Models
-//--------------
-var StoreModel = Backbone.Model.extend({
-        defaults: {
-            bestTime : undefined,
-        }
-    });
-
-//--------------
-// Collections
-//--------------
-var StoreCollecton = Backbone.Collection.extend({
-        model: StoreModel,
-        localStorage: new Store("Store"),
-    });
-
-var storeCollecton = new StoreCollecton();
-    storeCollecton.fetch();
-    if(storeCollecton.at(0) === undefined)
-        storeCollecton.set([{bestTime:undefined}]);
-
-
-var appContainer = new Container(),
-    trackContainer = new Container(),
-    carContainer = new Container(),
-    HUDcontainer = new Container(),
-    canvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY);
-document.body.appendChild(canvas.view);
-appContainer.addChild(trackContainer);
-appContainer.addChild(carContainer);
-appContainer.addChild(HUDcontainer);
-
-var trackAtlas,
-    trackPixelData;
-
-loader
-    .add("img/Track.json")
-    .load(DrawTrack)
-    .load(DrawCar)
-    .load(SetupControls)
-    .load(DrawTimer)
-    .load(gameLoop);
-    ;
-
-function gameLoop()
-{
-    requestAnimationFrame(gameLoop);
-
-    state();
-    UpdateTimer();
-
-    canvas.render(appContainer);
-}
-</script>
+<script src="js/Keyboard.js"></script>
+<script src="js/Controls.js"></script>
+<script src="js/PlayLoop.js"></script>
+<script src="js/Main.js"></script>
 </body>
