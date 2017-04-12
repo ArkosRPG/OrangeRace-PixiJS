@@ -1,8 +1,6 @@
-var Text = PIXI.Text;
 var timerText;
 
-
-function DrawTimer()
+function DrawTimer(container)
 {
     timerText = new Text("Loading...",{
         fontFamily: 'Roboto',
@@ -16,12 +14,10 @@ function DrawTimer()
     });
     timerText.position.set(CELL*SIZEX/2, 0);
     timerText.anchor.set(.5,0);
-    HUDcontainer.addChild(timerText);
-
-    HUDcanvas.render(HUDcontainer);
+    container.addChild(timerText);
 }
 
-function UpdateTimer()
+function UpdateTimer(car)
 {
     if(car.trackStart === undefined)
     {
@@ -45,11 +41,11 @@ function UpdateTimer()
                 time += "00"+mod;
         }
 
-
-        if(car.bestTime != undefined)
+        var bestTime = car.bestTime;
+        if(bestTime != undefined)
         {
-            time += "\nBest: "+ (((car.bestTime - car.bestTime%1000)/1000)<<0) +":";
-            var mod = car.bestTime%1000;
+            time += "\nBest: "+ (((bestTime - bestTime%1000)/1000)<<0) +":";
+            var mod = bestTime%1000;
             if(mod>99)
                 time += mod;
             else
