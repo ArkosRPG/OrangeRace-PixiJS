@@ -44,6 +44,7 @@ function PlayLoop()
                 {
                     window.localStorage.setItem('BestTime', car.lapTime);
                     car.bestTime = car.lapTime;
+                    windowBestText.text = "Best lap: "+car.bestTime+"ms";
                 }
             }
         }

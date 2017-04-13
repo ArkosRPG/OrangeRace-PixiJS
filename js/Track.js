@@ -20,3 +20,22 @@ function DrawTiledRect(container, map, SIZEX, SIZEY, DX, DY, spritePrefix, atlas
         }
     }
 }
+
+function DrawText(container, label, X, Y, fontSize, anchorY)
+{
+    var text = new Text(label,{
+        fontFamily: 'Roboto',
+        fontSize:   fontSize,
+        fontStyle:  'bold',
+        fill:       '#ff8800',
+        align:      'center',
+        stroke:     '#884400',
+        strokeThickness: fontSize/4,
+        lineJoin:   'round'
+    });
+    text.position.set(X, Y);
+    text.anchor.set(.5,anchorY);
+    container.addChild(text);
+    
+    return text;
+}

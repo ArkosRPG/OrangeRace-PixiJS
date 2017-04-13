@@ -65,7 +65,7 @@ function StartGame()
     SetupControls();
     canvas.render(carContainer);
 
-    DrawTimer(hudContainer);
+    InitTimer(hudContainer);
     canvas.render(hudContainer);
 
     gameState = PlayLoop;

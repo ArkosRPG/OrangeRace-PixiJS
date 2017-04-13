@@ -1,20 +1,8 @@
 var timerText;
 
-function DrawTimer(container)
+function InitTimer(container)
 {
-    timerText = new Text("Loading...",{
-        fontFamily: 'Roboto',
-        fontSize:   20,
-        fontStyle:  'bold',
-        fill:       '#ff8800',
-        align:      'center',
-        stroke:     '#884400',
-        strokeThickness: 6,
-        lineJoin:   'round'
-    });
-    timerText.position.set(CELL*SIZEX/2, 0);
-    timerText.anchor.set(.5,0);
-    container.addChild(timerText);
+    timerText = DrawText(container, "Loading...", CELL*SIZEX/2, 0, 20, 0);
 }
 
 function UpdateTimer(car)
