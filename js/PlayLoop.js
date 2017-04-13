@@ -1,7 +1,7 @@
 function PlayLoop()
 {
     car.velocity += car.acceleration;
-    var MAXSPEED = 10;
+    var MAXSPEED = 7.5;
     if(car.velocity > MAXSPEED)
         car.velocity = MAXSPEED;
     if(car.velocity < 0)

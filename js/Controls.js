@@ -1,7 +1,7 @@
 function SetupControls()
 {
     var dAccel   = .1;
-    var dRotate  = .05;
+    var dRotate  = .075;
 
     var left  = keyboard(37),
         up    = keyboard(38),
