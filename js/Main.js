@@ -8,15 +8,19 @@ var appContainer = new Container(),
     trackContainer = new Container(),
     carContainer = new Container(),
     hudContainer = new Container(),
+    windowContainer = new Container(),
     canvas = new PIXI.CanvasRenderer(CELL*SIZEX, CELL*SIZEY);
 document.body.appendChild(canvas.view);
 appContainer.addChild(trackContainer);
 appContainer.addChild(carContainer);
 appContainer.addChild(hudContainer);
+appContainer.addChild(windowContainer);
 
 var atlasPath = "img/Track.json",
     atlas,
     trackMap,
+    windowMap,
+    buttonMap,
     car,
     gameState;
 
@@ -39,11 +43,22 @@ function InitGame()
                          5, 23, 21, 0, 12, 30, 48, 90, 36, 0, 90, 36,
                          6, 24, 17, 17, 42, 60, 0, 6, 24, 17, 42, 60,
                          7, 25, 19, 19, 43, 61, 0, 7, 25, 19, 43, 61);
+    windowMap = new Array(8,  26,  21,  44, 62,
+                          9,  371, 372, 22, 63,
+                          4,  40,  4,   22, 40,
+                          4,  40,  4,   22, 40,
+                          10, 201, 202, 22, 64,
+                          11, 29,  23,  47, 65);
+    buttonMap = new Array(76, 60);
 
     atlas = LoadAtlas(atlasPath);
-    DrawTrack(trackContainer, trackMap, "road_sand", atlas);
+    DrawTiledRect(trackContainer, trackMap, SIZEX, SIZEY, 0, 0, "road_sand", atlas);
     canvas.render(trackContainer);
     CollisionInit(canvas.view);
+
+    CreateWindow(windowContainer, atlas, "road_asphalt", windowMap, 6, 5, "road_dirt", buttonMap, 2, 1, (SIZEX-6)/2, (SIZEY-5)/2);
+    canvas.render(windowContainer);
+
     StartGame();
 }
 
@@ -65,14 +80,16 @@ function ClearGame()
 {
     ResetCar(car,  1, 7);
     ResetCar(car2, 1, 9);
-    StartGame();
+
+    gameState = PlayLoop;
 }
 
 function GameLoop()
 {
     requestAnimationFrame(GameLoop);
 
-    gameState();
+    if(gameState != undefined)
+        gameState();
     UpdateTimer(car);
 
     canvas.render(appContainer);

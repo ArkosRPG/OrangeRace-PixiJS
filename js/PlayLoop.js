@@ -28,6 +28,8 @@ function PlayLoop()
           car.y <= 6.5*CELL)
         {
             console.log("Lap!");
+            ++car.lapCount;
+
             if(car.trackStart === undefined)
             {
                 car.trackStart =
@@ -55,4 +57,7 @@ function PlayLoop()
         car.y = CELL*SIZEY;
     if(car.y < 0)
         car.y = 0;
+
+    if(car.lapCount >= car.lapsToWin)
+        gameState = ShowWinLoop;
 }

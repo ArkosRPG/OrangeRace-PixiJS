@@ -19,6 +19,9 @@ function ResetCar(car, startPositionX, startPositionY)
     car.acceleration = 0;
     car.angle        = 0;
 
+    car.lapCount  = -1;
+    car.lapsToWin = 3;
+
     car.trackStart   = undefined;
     car.startLapTime = undefined;
     car.lapTime      = undefined;

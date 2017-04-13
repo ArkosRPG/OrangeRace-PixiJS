@@ -1,4 +1,4 @@
-function DrawTrack(container, trackMap, spritePrefix, atlas)
+function DrawTiledRect(container, map, SIZEX, SIZEY, DX, DY, spritePrefix, atlas)
 {
     var i = 0;
     for(var x = 0; x < SIZEX; x++)
@@ -8,13 +8,13 @@ function DrawTrack(container, trackMap, spritePrefix, atlas)
             if(trackMap[i] > 0)
             {
                 var spriteName = spritePrefix;
-                if(trackMap[i] < 10)
+                if(map[i] < 10)
                     spriteName += 0;
-                spriteName += trackMap[i];
+                spriteName += map[i];
           
-                var trackCell = new Sprite(atlas[spriteName]);
-                trackCell.position.set(x * CELL, y * CELL);
-                container.addChild(trackCell);
+                var tile = new Sprite(atlas[spriteName]);
+                tile.position.set((x+DX)*CELL, (y+DY)*CELL);
+                container.addChild(tile);
             }
             i++;
         }

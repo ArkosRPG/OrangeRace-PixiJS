@@ -4,12 +4,12 @@ function DrawTimer(container)
 {
     timerText = new Text("Loading...",{
         fontFamily: 'Roboto',
-        fontSize:   24,
+        fontSize:   20,
         fontStyle:  'bold',
         fill:       '#ff8800',
         align:      'center',
         stroke:     '#884400',
-        strokeThickness: 10,
+        strokeThickness: 6,
         lineJoin:   'round'
     });
     timerText.position.set(CELL*SIZEX/2, 0);
@@ -27,6 +27,8 @@ function UpdateTimer(car)
     {
         var time = new Date().valueOf() - car.trackStart;
         time = "Time: "+ (((time - time%1000)/1000)<<0) +":"+ (time%1000);
+
+        time += "\nLaps: "+car.lapCount+"/"+car.lapsToWin;
 
         if(car.lapTime != undefined)
         {
