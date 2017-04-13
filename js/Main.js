@@ -26,11 +26,12 @@ var atlasPath = "img/Track.json",
 
 loader
     .add(atlasPath)
-    .load(InitGame)
+    .load(StartGame)
     ;
 
-function InitGame()
+function StartGame()
 {
+    atlas = LoadAtlas(atlasPath);
     trackMap = new Array(4, 22, 17, 17, 17, 17, 65, 17, 17, 17, 40, 58,
                          5, 23, 19, 19, 19, 41, 66, 79, 79, 79, 18, 59,
                          6, 24, 17, 40, 58, 3, 67, 19, 19, 19, 41, 36,
@@ -51,7 +52,6 @@ function InitGame()
                           11, 29,  23,  47, 65);
     buttonMap = new Array(76, 60);
 
-    atlas = LoadAtlas(atlasPath);
     DrawTiledRect(trackContainer, trackMap, SIZEX, SIZEY, 0, 0, "road_sand", atlas);
     canvas.render(trackContainer);
     CollisionInit(canvas.view);
@@ -59,16 +59,11 @@ function InitGame()
     CreateWindow(windowContainer, atlas, "road_asphalt", windowMap, 6, 5, "road_dirt", buttonMap, 2, 1, (SIZEX-6)/2, (SIZEY-5)/2);
     canvas.render(windowContainer);
 
-    StartGame();
-}
-
-function StartGame()
-{
-    car2 = SetupCar(carContainer, atlas, "CarGray",   1, 9);
-    car  = SetupCar(carContainer, atlas, "CarOrange", 1, 7);
+    //car2 = SetupCar(carContainer, atlas, "CarGray",   1, 9);
+    car  = SetupCar(carContainer, atlas, "CarOrange", 1, 9);
+    SetupControls();
     canvas.render(carContainer);
 
-    SetupControls();
     DrawTimer(hudContainer);
     canvas.render(hudContainer);
 
@@ -78,8 +73,8 @@ function StartGame()
 
 function ClearGame()
 {
-    ResetCar(car,  1, 7);
-    ResetCar(car2, 1, 9);
+    ResetCar(car,  1, 9);
+    //ResetCar(car2, 1, 9);
 
     gameState = PlayLoop;
 }
