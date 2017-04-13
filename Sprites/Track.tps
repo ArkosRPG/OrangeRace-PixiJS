@@ -212,6 +212,27 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">Asphalt road/road_asphalt04.png</key>
+            <key type="filename">Asphalt road/road_asphalt08.png</key>
+            <key type="filename">Asphalt road/road_asphalt09.png</key>
+            <key type="filename">Asphalt road/road_asphalt10.png</key>
+            <key type="filename">Asphalt road/road_asphalt11.png</key>
+            <key type="filename">Asphalt road/road_asphalt201.png</key>
+            <key type="filename">Asphalt road/road_asphalt202.png</key>
+            <key type="filename">Asphalt road/road_asphalt21.png</key>
+            <key type="filename">Asphalt road/road_asphalt22.png</key>
+            <key type="filename">Asphalt road/road_asphalt23.png</key>
+            <key type="filename">Asphalt road/road_asphalt26.png</key>
+            <key type="filename">Asphalt road/road_asphalt29.png</key>
+            <key type="filename">Asphalt road/road_asphalt371.png</key>
+            <key type="filename">Asphalt road/road_asphalt372.png</key>
+            <key type="filename">Asphalt road/road_asphalt40.png</key>
+            <key type="filename">Asphalt road/road_asphalt44.png</key>
+            <key type="filename">Asphalt road/road_asphalt47.png</key>
+            <key type="filename">Asphalt road/road_asphalt62.png</key>
+            <key type="filename">Asphalt road/road_asphalt63.png</key>
+            <key type="filename">Asphalt road/road_asphalt64.png</key>
+            <key type="filename">Asphalt road/road_asphalt65.png</key>
             <key type="filename">CarGray.png</key>
             <key type="filename">CarOrange.png</key>
             <key type="filename">Sand road/road_sand03.png</key>
@@ -247,6 +268,8 @@
             <key type="filename">Sand road/road_sand67.png</key>
             <key type="filename">Sand road/road_sand79.png</key>
             <key type="filename">Sand road/road_sand90.png</key>
+            <key type="filename">../../racing-pack/Tiles/Dirt road/road_dirt60.png</key>
+            <key type="filename">../../racing-pack/Tiles/Dirt road/road_dirt76.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -266,6 +289,9 @@
             <filename>CarOrange.png</filename>
             <filename>Sand road</filename>
             <filename>2px.png</filename>
+            <filename>../../racing-pack/Tiles/Dirt road/road_dirt60.png</filename>
+            <filename>../../racing-pack/Tiles/Dirt road/road_dirt76.png</filename>
+            <filename>Asphalt road</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
