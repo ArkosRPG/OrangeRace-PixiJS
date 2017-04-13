@@ -8,8 +8,8 @@ function ShowWinLoop()
 
 function HandleWindow()
 {
-    // here must be button handling
-    gameState = HideWinLoop;
+    // w8ing for button
+    gameState = null;
 }
 
 function HideWinLoop()
