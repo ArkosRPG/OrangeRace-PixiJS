@@ -19,31 +19,10 @@ function UpdateTimer(car)
         time += "\nLaps: "+car.lapCount+"/"+car.lapsToWin;
 
         if(car.lapTime != undefined)
-        {
-            time += "\nLap:  "+ (((car.lapTime - car.lapTime%1000)/1000)<<0) +":";
-            var mod = car.lapTime%1000;
-            if(mod>99)
-                time += mod;
-            else
-            if(mod>9)
-                time += "0"+mod;
-            else
-                time += "00"+mod;
-        }
+            time += "\nLap:  " + FormatTime(car.lapTime);
 
-        var bestTime = car.bestTime;
-        if(bestTime != undefined)
-        {
-            time += "\nBest: "+ (((bestTime - bestTime%1000)/1000)<<0) +":";
-            var mod = bestTime%1000;
-            if(mod>99)
-                time += mod;
-            else
-            if(mod>9)
-                time += "0"+mod;
-            else
-                time += "00"+mod;
-        }
+        if(car.bestTime != undefined)
+            time += "\nBest: "+ FormatTime(car.bestTime);
 
         timerText.text = time;
     }

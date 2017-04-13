@@ -30,7 +30,7 @@ function DrawText(container, label, X, Y, fontSize, anchorY)
         fill:       '#ff8800',
         align:      'center',
         stroke:     '#884400',
-        strokeThickness: fontSize/4,
+        strokeThickness: fontSize/3,
         lineJoin:   'round'
     });
     text.position.set(X, Y);
@@ -38,4 +38,19 @@ function DrawText(container, label, X, Y, fontSize, anchorY)
     container.addChild(text);
     
     return text;
+}
+
+function FormatTime(time)
+{
+    var timeText =""+(((time - time%1000)/1000)<<0) +":";
+    var mod = time%1000;
+    if(mod>99)
+        timeText += mod;
+    else
+    if(mod>9)
+        timeText += "0"+mod;
+    else
+        timeText += "00"+mod;
+
+    return timeText;
 }

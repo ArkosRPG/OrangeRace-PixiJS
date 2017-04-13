@@ -7,12 +7,12 @@ function CreateWindow(container, atlas,  wndwSpriteName, windowMap, WINDOWSIZEX,
     InitWindow(WINDOWSIZEY, Y);
     DrawWindow(container, atlas,  wndwSpriteName, windowMap, WINDOWSIZEX, WINDOWSIZEY, btnSpriteName, buttonMap, BTNSIZEX, BTNSIZEY, X);
     container.y = WINDOWUPY;
-    container.alpha = 0;
+    container.alpha = 0.1;
 }
 
 function InitWindow(WINDOWSIZEY, Y)
 {
-    WINDOWUPY = -CELL*WINDOWSIZEY/2;
+    WINDOWUPY = -CELL*WINDOWSIZEY;
     WINDOWDOWNY = Y*CELL;
 }
 
