@@ -6,8 +6,8 @@ function CreateWindow(container, atlas,  wndwSpriteName, windowMap, WINDOWSIZEX,
 {
     InitWindow(WINDOWSIZEY, Y);
     DrawWindow(container, atlas,  wndwSpriteName, windowMap, WINDOWSIZEX, WINDOWSIZEY, btnSpriteName, buttonMap, BTNSIZEX, BTNSIZEY, X);
-    //container.y = WINDOWUPY;
-    //container.alpha = 0;
+    container.y = WINDOWUPY;
+    container.alpha = 0;
 }
 
 function InitWindow(WINDOWSIZEY, Y)
