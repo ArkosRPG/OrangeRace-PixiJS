@@ -58,13 +58,14 @@ function StartGame()
 
     CreateWindow(windowContainer, atlas, "road_asphalt", windowMap, 6, 5, "road_dirt", buttonMap, 2, 1, (SIZEX-6)/2, (SIZEY-5)/2);
     canvas.render(windowContainer);
+    InitButton();
 
     //car2 = SetupCar(carContainer, atlas, "CarGray",   1, 9);
     car  = SetupCar(carContainer, atlas, "CarOrange", 1, 9);
     SetupControls();
     canvas.render(carContainer);
 
-    DrawTimer(hudContainer);
+    InitTimer(hudContainer);
     canvas.render(hudContainer);
 
     gameState = PlayLoop;
@@ -83,7 +84,9 @@ function GameLoop()
 {
     requestAnimationFrame(GameLoop);
 
-    if(gameState != undefined)
+    // undefined - animations time
+    // null      - w8ing for input
+    if(gameState != undefined && gameState != null)
         gameState();
     UpdateTimer(car);
 
