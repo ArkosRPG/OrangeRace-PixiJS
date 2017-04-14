@@ -25,8 +25,4 @@ function InitButton()
                                     x > button.left && x < button.left + button.width)
                                     HideWinLoop();
                             });
-
-    context = canvas.view.getContext('2d');
-    context.fillStyle = button.colour;
-    context.fillRect(button.left, button.top, button.width, button.height);
 }
